@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ucd-transformer
-        image: ucd-transformer:latest  
+        image: harisazhr/sagileucd   
         ports:
         - containerPort: 8443  
         env:
