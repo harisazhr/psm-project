@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ucd-transformer
+spec:
+  replicas: 2  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: ucd-transformer
+  template:
+    metadata:
+      labels:
+        app: ucd-transformer
+    spec:
+      containers:
+      - name: ucd-transformer
+        image: ucd-transformer:latest  
+        ports:
+        - containerPort: 8443  
+        env:
+        - name: DJANGO_SETTINGS_MODULE
+          value: "django_psm.settings"  
+        - name: SECRET_KEY
+          value: "django-insecure-qjn$nn6&47htd@3t%=wf=t-&_9ibi71dpfxyu&78(%&6tb%09("
